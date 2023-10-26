@@ -1,19 +1,35 @@
-# Color Scheme Generator
+Color Scheme Generator
+The HTML structure
+The body has a flattened HTML structure consisting of input elements for color and scheme mode selection, and a get color scheme button.
+The returned results from the color API are rendered in div container.
 
-Users pick a color and select a scheme to generate colors based on selected scheme and color.
+The CSS rules
+Both the selection menu at the top and the section displaying the images and labels are displayed as flexbox (default row).
 
-Below is summary of how this web application was developed:
-### Choose "seed color"
-- The color picker is a built-in HTML element with a type of color
-- Looking into the input type of color will bring out the browser's default color picker
-	- [ HTML input type="color"](https://www.w3schools.com/tags/att_input_type_color.asp#:~:text=The%20%3Cinput%20type%3D%22color,is%20%23000000%20(black))
-- Choosing a particular color will create a seed color
+The JavaScript functionalities
+Event Listener for color inputs
+This event listens to a color change, and upon sensing a change, grabs the color's hex value and stores it.
 
-### Interacting The Color API
-- Send the seed color together with the color scheme mode to the API
-- Clicking on the [GET a generated scheme for the provided seed color](https://www.thecolorapi.com/docs#schemes-generate-scheme-get)
-- API returns a number of hex values which represent the colors in your new scheme 
+Event Listener for mode selection
+This event listens to a color scheme mode change, and upon sensing a change, grabs the color's scheme mode and stores it.
 
-### Display the scheme colors and hex values on the page
+Get Color Scheme button
+An event listener that listens to user clicking action. A click action would fetch JSON data from the API and parse into JavaScript.
+It will then iterate over the JSON data to retrieve color image url, hex value and color name, which will be used as parameters for the functions renderColorImage and renderColorHexValue.
 
-### Copy to clipboard when the hex value of the particular color scheme clicked
+Utility function - Renders Color Scheme Mode
+The color scheme modes were stored in a data file and a function was created to capitalise the first letter and renders it to the DOM.
+
+Utility function - Extract Hex Value
+Takes in the full URL string and extracts the hex value substring.
+
+Utility function - Copy to Clipboard
+Received the extracted hex value and write it the clipboard using the clipboard navigator API.
+
+Utility function - Captalise first letter of a string
+Takes in the string of lower case letters and returns the string with the first letter capitalised.
+
+Utility function - Clear the DOM
+Renders a empty DOM to the page.
+
+To view the app on the web, check out the Netlify App Deployment

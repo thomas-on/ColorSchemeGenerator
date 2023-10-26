@@ -32,4 +32,4 @@ Takes in the string of lower case letters and returns the string with the first 
 Utility function - Clear the DOM
 Renders a empty DOM to the page.
 
-To view the app on the web, check out the Netlify App Deployment
+To view the app on the web, check out the [Netlify App Deployment](https://color-scheme-generator-tom.netlify.app/)
